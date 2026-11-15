@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宿舍管理系统 - 简易界面</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Microsoft YaHei", sans-serif; margin: 0; background: #f6f7fb; }
+    header { background: #111827; color: #fff; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+    header .title { font-weight: 700; }
+    header .right { font-size: 12px; opacity: 0.9; }
+    main { padding: 16px; max-width: 1100px; margin: 0 auto; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; margin-bottom: 12px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    label { font-size: 12px; color: #374151; }
+    input { height: 34px; padding: 0 10px; border: 1px solid #d1d5db; border-radius: 8px; outline: none; }
+    button { height: 34px; padding: 0 12px; border: 1px solid #d1d5db; background: #fff; border-radius: 8px; cursor: pointer; }
+    button.primary { background: #2563eb; border-color: #2563eb; color: #fff; }
+    button.danger { background: #ef4444; border-color: #ef4444; color: #fff; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .muted { color: #6b7280; font-size: 12px; }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tab { padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 999px; background: #fff; cursor: pointer; }
+    .tab.active { background: #111827; border-color: #111827; color: #fff; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb; font-size: 13px; }
+    th { background: #f9fafb; font-weight: 600; color: #374151; }
+    pre { background: #0b1020; color: #e5e7eb; padding: 12px; border-radius: 10px; overflow: auto; }
+    .hint { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; padding: 10px; border-radius: 10px; font-size: 12px; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="title">宿舍管理系统（简易界面）</div>
+  <div class="right" id="statusText">未登录</div>
+</header>
+
+<main>
+  <div class="card" id="loginCard">
+    <div class="row" style="justify-content: space-between">
+      <div>
+        <div style="font-weight: 700; margin-bottom: 6px;">登录</div>
+        <div class="muted">用演示账号：admin/admin123、dorm/dorm123、worker/worker123、stu/stu123</div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 10px">
+      <div>
+        <label>用户名</label><br />
+        <input id="username" placeholder="例如 admin" />
+      </div>
+      <div>
+        <label>密码</label><br />
+        <input id="password" type="password" placeholder="例如 admin123" />
+      </div>
+      <div style="padding-top: 18px">
+        <button class="primary" id="loginBtn">登录</button>
+        <button class="danger" id="logoutBtn" style="display:none">退出</button>
+      </div>
+    </div>
+    <div class="muted" id="loginMsg" style="margin-top: 8px"></div>
+  </div>
+
+  <div class="card" id="appCard" style="display:none">
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-tab="overview">概览</div>
+      <div class="tab" data-tab="students">学生列表</div>
+      <div class="tab" data-tab="repairs">报修列表</div>
+      <div class="tab" data-tab="rooms">房间列表</div>
+      <div class="tab" data-tab="swagger">Swagger</div>
+    </div>
+
+    <div class="hint" style="margin-top: 12px">
+      这是一个不依赖 npm 的简易演示界面（纯 HTML+JS）。如果你以后想要完整漂亮的前端管理界面，再去跑 Vue 前端即可。
+    </div>
+
+    <div id="view" style="margin-top: 12px"></div>
+  </div>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

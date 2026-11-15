@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dormitory_system?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+app:
+  jwt:
+    issuer: dormitory-system
+    secret: change_me_to_a_long_random_secret_at_least_32_chars
+    expiration-minutes: 720

@@ -1,0 +1,14 @@
+node_modules/
+target/
+dist/
+.idea/
+.vscode/
+__pycache__/
+.claude/
+generated_images/
+*.mp4
+*.zip
+*.docx
+*.pptx
+*.log
+*.iml
